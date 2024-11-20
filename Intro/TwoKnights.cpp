@@ -1,24 +1,15 @@
 #include <iostream>
 #include <string>
 
-long double choose(int n, int k){
-    long double value = 1.0;
-    for (int i = 0; i < k; i++){
-        value *= (n - i);
-    }
-    for (int i = 1; i <= k; i++){
-        value /= i;
-    }
-    return value;
-}
 
 int main(){
-    for (int i = 1; i <= 8; i++){
-        std::string line;
-        std::getline(std::cin, line);
-        long long num = stoi(line);
-        long double total = choose(i * i, 2);
-        long long diff = total - num;
-        std::cout << "Size: " << i << "\tTotal: " << total << "\tGood: " << num << "\tBad: " << diff << std::endl;
+    std::string line;
+    std::getline(std::cin, line);
+    long long  num = std::stoi(line);
+    std::cout << "0" << std::endl;
+    for (long long i = 2; i <= num; i++){
+        long long choose = (i*i) * (i * i - 1)/ 2;
+        long long removal = 2 * 2 * (i-1) * (i-2);
+        std::cout << (choose - removal) << std::endl;
     }
 }
